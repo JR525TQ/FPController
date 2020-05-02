@@ -32,9 +32,9 @@ public class ControlJugador : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
-        }            
+        }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
@@ -42,9 +42,10 @@ public class ControlJugador : MonoBehaviour
         void Shoot()
         {
             RaycastHit hit;
-            if (Physics.Raycast(camaraPrimeraPersona.transform.position, camaraPrimeraPersona.transform.TransformDirection(Vector3.forward) , out hit, rango))
+
+            if (Physics.Raycast(camaraPrimeraPersona.ScreenPointToRay(new Vector3(0.5f, 0.5f, 0.5f)), out hit, rango))
             {
-                Debug.Log("hit");
+                Debug.Log(hit.transform.name);
             }
         }
     }
